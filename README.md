@@ -43,7 +43,8 @@ git clone https://github.com/brunononogaki/ansible-awx-install-with-operator.git
 
 ### 3.1 Step 1
 ```
-kustomize build ./awx/step1/ | kubectl apply -f -
+cd ./awx/step1/
+kubectl apply -k .
 ```
 
 Check if the pod was created in the namespace awx:
@@ -60,7 +61,8 @@ awx-operator-controller-manager-666ddcf9c5-gq4wx   2/2     Running   0          
 
 ### 3.2 Step 2
 ```
-kustomize build ./awx/step2/ | kubectl apply -f -
+cd ./awx/step2
+kubectl apply -k .
 ```
 
 Check if more pods were created:
