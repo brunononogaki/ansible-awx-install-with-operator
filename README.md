@@ -78,14 +78,14 @@ kustomize build ./awx/step2/ | kubectl apply -f -
 + Check if more pods were created:
 ```
 [admin@ansible ~]$ kubectl get pods -n awx
-NAME                                               READY   STATUS     RESTARTS   AGE
-awx-operator-controller-manager-666ddcf9c5-gq4wx   2/2     Running    0          7m19s
-awx-postgres-15-0                                  1/1     Running    0          2m2s
-awx-task-6654cd5f64-mdq2k                          0/4     Init:0/2   0          72s
-awx-web-7555d5f654-ltxb9     
+NAME                                               READY   STATUS              RESTARTS   AGE
+awx-operator-controller-manager-666ddcf9c5-gq4wx   2/2     Running             0          3m26s
+awx-postgres-15-0                                  1/1     Running             0          55s
+awx-task-75d7448f5f-7dqpq                          0/4     Init:0/2            0          6s
+awx-web-76dcd6466f-tbhh7                           0/3     ContainerCreating   0          7s 
 ````
 
-+ Wait around 10 minutes. You can follow the logs with this command:
++ Wait approximately 10 minutes for the pods to start. You can follow the logs with this command:
 ```
 kubectl logs -f deployments/awx-operator-controller-manager -c awx-manager -n awx
 ```
@@ -101,7 +101,7 @@ localhost                  : ok=88   changed=0    unreachable=0    failed=0    s
 [admin@ansible ~]$ kubectl get pods -n awx
 NAME                                               READY   STATUS      RESTARTS        AGE
 awx-migration-24.6.1-8kztz                         0/1     Completed   0               8m3s
-awx-operator-controller-manager-666ddcf9c5-gq4wx   2/2     Running     2 (3m12s ago)   15m
+awx-operator-controller-manager-666ddcf9c5-gq4wx   2/2     Running     0               15m
 awx-postgres-15-0                                  1/1     Running     0               10m
 awx-task-6654cd5f64-mdq2k                          4/4     Running     0               9m28s
 awx-web-7555d5f654-ltxb9                           3/3     Running     0               9m29s
