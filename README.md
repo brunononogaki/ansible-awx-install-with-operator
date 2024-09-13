@@ -122,3 +122,6 @@ kubectl get secret awx-admin-password -o jsonpath="{.data.password}" -n awx | ba
 http://<Linux_IP_Address>:30080/#/login
 ```
 + Use admin and the password generated in step 4.
+
+## 6. Build a custom Execution Environment
+If you want to build a custom execution environment, follow this other [guide](https://github.com/brunononogaki/ansible-awx-install-with-operator).
